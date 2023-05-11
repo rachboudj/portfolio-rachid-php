@@ -33,5 +33,13 @@
                     echo '<li><a href="index.php?page=login">Login</a></li>';                    
                 }
                 ?>
+            <?php
+                if (isset($_SESSION['login']) && $_SESSION['login'] === true && $_SESSION['role'] == 'admin') {
+                    echo '
+                    <div class="profil-admin">
+                        <li><a href="index.php?page=utilisateur">Utilisateurs</a></li>
+                    </div>';
+                }
+                ?>
         </nav>
     </header>

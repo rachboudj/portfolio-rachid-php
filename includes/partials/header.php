@@ -26,6 +26,7 @@
             <li><a href="#">Moi</a></li>
             <li><a href="#">Projets</a></li>
             <li><a href="#">rboudjakdji@normandiewebschool.fr ↗</a></li>
+            <li><a href="index.php?page=nouveauProjet">Ajouter projet</a></li>
             <?php
                 if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
                     echo '<li><a href="index.php?page=logout">Logout</a></li>';

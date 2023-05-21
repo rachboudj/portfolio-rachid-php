@@ -39,7 +39,7 @@ if (!empty($_GET['projetId']) && is_numeric($_GET['projetId'])) {
             $query->bindValue(':status', $status, PDO::PARAM_STR);
             $query->bindValue(':id_projet',$id, PDO::PARAM_INT);
             $query->execute();
-            echo "<script>window.location.replace('index.php?page=projet')</script>";
+            echo "<script>window.location.replace('index.php?page=projet&amp;id={$projet['id_projet']}')</script>";
         }
     }
 } else {

@@ -35,6 +35,12 @@ if(!empty($_POST['submitted'])) {
     }
 }
 
+$sql = "SELECT * FROM commentaires WHERE id_projet = :id_projet";
+$query = $pdo=pdo()->prepare($sql);
+$query->bindValue(':id_projet',$id,PDO::PARAM_INT);
+$query->execute();
+$commentaires = $query->fetchAll();
+
 ?>
 
 <section id="detail-projet">
@@ -78,5 +84,17 @@ if(!empty($_POST['submitted'])) {
 
         <input type="submit" name="submitted" value="Ajouter">
     </form>
+
+    <?php if(!empty($commentaires)) { ?>
+        <h2>Les commentaires</h2>
+        <?php foreach ($commentaires as $commentaire) { ?>
+            <div class="commentaires">
+                <p>Auteur : <?= $commentaire['auteur']?></p>
+                <p>Content : <?= $commentaire['description']?></p>
+                <button><a href="index.php?page=supprimerCommentaire&amp;projetId=<?= $commentaire['id_commentaire'] ?>">Supprimer</a></button>
+                <button><a href="index.php?page=modifCommentaire&amp;projetId=<?= $commentaire['id_commentaire'] ?>">Modifier</a></button>
+            </div>
+        <?php } ?>
+    <?php } ?>
 
 </section>

@@ -1,5 +1,5 @@
 <?php
-
+$errors = array();
 if (!empty($_GET['id']) && is_numeric($_GET['id'])) {
     $id = $_GET['id'];
     $sql = "SELECT * FROM projets WHERE id_projet = :id_projet";
@@ -30,5 +30,18 @@ if (!empty($_GET['id']) && is_numeric($_GET['id'])) {
             <button><a href="<?php echo ucfirst($projet['url_site']); ?>">Voir le site</a></button>
         </div>
 
+
+        <?php
+        if (isset($_SESSION['login']) && $_SESSION['login'] === true && $_SESSION['role'] == 'admin') {
+            echo '
+                    <div class="btn-edit-suppr">
+                        <button><a href="index.php?page=modifProjet&amp;projetId=<?=' . $projet['id_projet'] . '?>">Modifier</a></button>
+                        <button><a href="index.php?page=supprimerProjet&amp;projetId=<?=' . $projet['id_projet'] . '?>">Supprimer</a></button>
+                    </div>';
+        }
+        ?>
+
+        <button><a href="index.php?page=modifProjet&amp;projetId=<?= $projet['id_projet'] ?>">Modifier</a></button>
+        <button><a href="index.php?page=supprimerProjet&amp;projetId=<?= $projet['id_projet'] ?>">Supprimer</a></button>
     </div>
 </section>

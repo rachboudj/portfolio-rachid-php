@@ -24,7 +24,7 @@
         </div>
         <nav>
             <li><a href="#">Moi</a></li>
-            <li><a href="#">Projets</a></li>
+            <li><a href="index.php?page=projet">Projets</a></li>
             <li><a href="#">rboudjakdji@normandiewebschool.fr ↗</a></li>
             <li><a href="index.php?page=nouveauProjet">Ajouter projet</a></li>
             <?php

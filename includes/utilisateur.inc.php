@@ -1,11 +1,14 @@
 <h1>Les utilisateurs</h1>
 
-<?php 
-
-$sql = "SELECT * FROM utilisateurs ORDER BY id_utilisateur DESC";
-$query = pdo()->prepare($sql);
-$query->execute();
-$utilisateurs = $query->fetchAll();
+<?php
+if (isset($_SESSION['login']) && $_SESSION['login'] === true && $_SESSION['role'] == 'admin') {
+    $sql = "SELECT * FROM utilisateurs ORDER BY id_utilisateur DESC";
+    $query = pdo()->prepare($sql);
+    $query->execute();
+    $utilisateurs = $query->fetchAll();
+} else {
+    echo "<script>window.location.replace('index.php?page=login')</script>";
+}
 
 ?>
 

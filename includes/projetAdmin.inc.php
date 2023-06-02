@@ -2,10 +2,14 @@
 
 <?php
 
-$sql = "SELECT * FROM projets ORDER BY created_at DESC";
-$query = pdo()->prepare($sql);
-$query->execute();
-$projets = $query->fetchAll();
+if (isset($_SESSION['login']) && $_SESSION['login'] === true && $_SESSION['role'] == 'admin') {
+    $sql = "SELECT * FROM projets ORDER BY created_at DESC";
+    $query = pdo()->prepare($sql);
+    $query->execute();
+    $projets = $query->fetchAll();
+} else {
+    echo "<script>window.location.replace('index.php?page=login')</script>";
+}
 
 ?>
 

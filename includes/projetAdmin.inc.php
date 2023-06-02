@@ -23,6 +23,7 @@ $projets = $query->fetchAll();
             <th>Date de création</th>
             <th>Date de modification</th>
             <th>Status</th>
+            <th colspan="3">Opérations</th>
         </tr>
     </thead>
     <tbody>
@@ -39,6 +40,8 @@ $projets = $query->fetchAll();
                 <td><?= $projet['created_at']; ?></td>
                 <td><?= $projet['modified_at']; ?></td>
                 <td><?= $projet['status']; ?></td>
+                <td><a href="index.php?page=modifProjet&amp;projetId=<?= $projet['id_projet'] ?>">Modifier</a></td>
+                <td><a href="index.php?page=supprimerProjet&amp;projetId=<?= $projet['id_projet'] ?>">Supprimer</a></td>
             </tr>
         <?php } ?>
     </tbody>

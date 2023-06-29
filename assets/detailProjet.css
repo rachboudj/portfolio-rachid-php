@@ -1,0 +1,112 @@
+/* ---------- Fin des utilitaires ---------- */
+
+.container-detail-projet {
+    margin-top: 2em;
+}
+
+.container-detail-projet .img-detail-projet {
+    width: 100%;
+    padding: 0 2em;
+}
+
+.container-detail-projet .img-detail-projet img{
+    width: 100%;
+}
+
+.container-detail-projet .text-detail-projet {
+    padding: 0 2em;
+    margin-top: 2em;
+}
+
+.container-detail-projet .text-detail-projet .head-detail-projet {
+    border-bottom: 2px solid var(--paragraphe);
+    padding-bottom: 25px;
+}
+
+.container-detail-projet .text-detail-projet .head-detail-projet .role {
+    color: var(--gris);
+}
+
+.container-detail-projet .text-detail-projet .head-detail-projet .container-stack {
+    margin-top: 2em;
+}
+
+.container-detail-projet .text-detail-projet .head-detail-projet .container-stack .stack {
+    border: 1px solid var(--paragraphe);
+    padding: 8px 15px;
+    border-radius: 50px;
+}
+
+.container-detail-projet .text-detail-projet p {
+    margin-top: 2em;
+}
+
+.container-detail-projet .text-detail-projet .btn-detail-projet {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2em;
+}
+
+.container-detail-projet .text-detail-projet .btn-detail-projet a {
+    text-transform: uppercase;
+    color: var(--titre);
+    font-weight: 600;
+}
+
+.commentaires {
+    width: 100%;
+    padding: 0 2em;
+    margin: 5em 0;
+}
+
+.commentaires h2 {
+    font-size: 2em;
+    width: max-content;
+}
+
+.commentaires .detail-commentaires {
+    margin-top: 4em;
+}
+
+.commentaires .detail-commentaires .auteur {
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+.commentaires .detail-commentaires .btn-commentaires {
+    margin-top: 1.5em;
+}
+
+.commentaires .detail-commentaires .btn-commentaires button a {
+    text-transform: uppercase;
+    font-family: var(--font-paragraphe);
+    border: 1px solid var(--paragraphe);
+    padding: 10px 20px;
+}
+
+.commentaires .detail-commentaires .btn-commentaires button .btn-remove {
+    text-transform: uppercase;
+    font-family: var(--font-paragraphe);
+    border: 1px solid var(--rouge);
+    color: var(--rouge);
+    padding: 10px 20px;
+}
+
+@media screen and (min-width:992px) {
+    .container-detail-projet {
+        display: flex;
+        align-items: center;
+        margin-top: 2em;
+    }
+    
+    .container-detail-projet .img-detail-projet {
+        width: 100%;
+        padding: 0 2em;
+        height: auto;
+    }
+    
+    .container-detail-projet .img-detail-projet img{
+        width: 100%;
+        height: auto;
+    }
+}

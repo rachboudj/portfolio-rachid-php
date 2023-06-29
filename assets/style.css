@@ -1,1 +1,523 @@
+@import url('./header.css');
 @import url('./main.css');
+@import url('./footer.css');
+@import url('./tableau.css');
+@import url('./formulaire.css');
+@import url('./detailProjet.css');
+
+/* Les titres */
+@import url("https://use.typekit.net/can4axo.css");
+
+/* Le corps du texte */
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@font-face {
+    font-family: 'Enoway';
+    src: url('../assets/font/enoway/enoway.otf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--paragraphe);
+    font-family: var(--font-paragraphe);
+    box-sizing: border-box;
+}
+
+/* Utilitaire */
+:root {
+    --background-color: #FFFEEF;
+    --titre: #2244FE;
+    --paragraphe: #323232;
+    --font-titre: "Enoway", serif;
+    --font-paragraphe: 'Space Mono', monospace;
+    --gris: #A9A9A9 ;
+    --rouge: #FA8072;
+    --blanc: #fff;
+    --transparent: transparent;
+}
+
+h1 {
+    font-family: var(--font-titre);
+    text-transform: uppercase;
+}
+
+h2 {
+    font-family: var(--font-titre);
+    font-size: 2.5em;
+    border-bottom: 2px solid var(--paragraphe);
+    padding-bottom: 10px;
+    text-transform: uppercase;
+}
+
+li {
+    list-style-type: none;
+    cursor: pointer;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+
+a {
+    text-decoration: none;
+    color: var(--paragraphe);
+}
+
+@media screen and (min-width:992px) {}
+
+@media screen and (min-width:768px) {}
+
+
+
+/* ---------- PRÉSENTATION ---------- */
+#presentation {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#presentation h1 {
+    font-size: 2.5em;
+    color: var(--titre);
+}
+
+#presentation p {
+    margin-top: 1em;
+    margin-right: auto;
+    margin-left: auto;
+    color: var(--titre);
+    text-transform: uppercase;
+    font-size: 1em;
+    width: 80%;
+}
+
+#presentation button {
+    margin-top: 5em;
+    border: none;
+    background-color: transparent;
+}
+
+#presentation button a {
+    color: var(--titre);
+    font-family: var(--font-paragraphe);
+    text-decoration: underline;
+    text-transform: uppercase;
+    font-size: 1em;
+}
+
+@media screen and (min-width:768px) {
+    #presentation .presentation h1 {
+        font-size: 5em;
+    }
+
+    #presentation .presentation p {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width:992px) {
+    #presentation .presentation h1 {
+        font-size: 6em;
+    }
+}
+
+/* ---------- À PROPOS ---------- */
+
+#a-propos {
+    display: none;
+    padding: 0 2em;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+#a-propos .container-text .text-a-propos h2 {
+    font-size: 2.5em;
+    border-bottom: 2px solid var(--paragraphe);
+    padding-bottom: 10px;
+}
+
+#a-propos .container-text .text-a-propos p {
+    line-height: 20px;
+    font-weight: 300;
+    /* text-transform: uppercase; */
+    margin-top: 1em;
+}
+
+#a-propos .img-a-propos {
+    width: 100%;
+    margin-top: 2em;
+    position: relative;
+}
+
+#a-propos .img-a-propos .ombre {
+    width: 100%;
+    /* outline: 2px solid var(--paragraphe); */
+    border: 2px solid var(--paragraphe);
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+#a-propos .img-a-propos img {
+    width: 100%;
+    z-index: 12;
+}
+
+@media screen and (min-width:768px) {
+    #a-propos {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    #a-propos .container-text .text-a-propos h2 {
+        font-size: 2.5em;
+    }
+
+    #a-propos .img-a-propos {
+        width: 40%;
+        margin-top: 0;
+    }
+
+    #a-propos .img-a-propos img {
+        width: 100%;
+    }
+
+    #a-propos .container-text {
+        width: 40%;
+    }
+}
+
+@media screen and (min-width:992px) {
+    #a-propos {
+        padding: 0 4em;
+    }
+}
+
+/* ---------- PROJETS ---------- */
+
+#projets {
+    margin-top: 7em;
+    padding: 0 2em;
+}
+
+#projets h2 {
+    font-size: 2em;
+    border-bottom: 2px solid var(--paragraphe);
+    padding-bottom: 10px;
+}
+
+#projets p {
+    margin-top: 1em;
+}
+
+#projets .card-project {
+    margin-top: 4em;
+    border: 1px solid var(--paragraphe);
+}
+
+#projets .card-project img {
+    width: 100%;
+    object-fit: cover;
+    height: 40vh;
+}
+
+#projets .card-project .content {
+    padding: 1.5em;
+}
+
+#projets .card-project .content .role {
+    font-style: italic;
+    color: var(--gris);
+}
+
+#projets .card-project .content .stack {
+    margin-top: 0.8em;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#projets .card-project .content .stack span {
+    border: 1px solid var(--paragraphe);
+    border-radius: 30px;
+    margin-top: 10px;
+    margin-right: 10px;
+    padding: 4px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#projets .card-project .content .text {
+    margin-top: 1.5em;
+}
+
+#projets .card-project .content .text .gras {
+    font-weight: 600;
+}
+
+#projets .card-project .content .text p:nth-child(2) {
+    margin-top: 1em;
+}
+
+#projets .card-project p a {
+    font-family: var(--corps);
+    font-weight: 100;
+    text-decoration: underline;
+    color: var(--paragraphe);
+}
+
+#projets .card-project .btn {
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#projets .card-project .btn button {
+    border: none;
+    background-color: transparent;
+}
+
+#projets .card-project button a {
+    font-family: var(--font-paragraphe);
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--titre);
+}
+
+#projets .btn-voir-projet {
+    margin-top: 4em;
+    display: flex;
+    justify-content: center;
+}
+
+#projets .btn-voir-projet button {
+    border: 1px solid var(--paragraphe);
+    padding: 1em 2em;
+    box-shadow: 4px 4px var(--paragraphe);
+}
+
+#projets .btn-voir-projet button a {
+    text-transform: uppercase;
+    font-family: var(--font-paragraphe);
+}
+
+@media screen and (min-width:768px) {
+    #projets .container-card {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    #projets .container-card .card-project {
+        width: 48%;
+    }
+}
+
+@media screen and (min-width:992px) {
+    #projets {
+        padding: 0 4em;
+    }
+
+    #projets .container-projets {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    #projets .container-projets .card {
+        width: 45%;
+    }
+}
+
+
+/* ---------- SKILLS ---------- */
+#skills {
+    margin-top: 7em;
+    padding: 0 2em;
+}
+
+#skills h2 {
+    font-size: 2em;
+    border-bottom: 2px solid var(--paragraphe);
+    padding-bottom: 10px;
+}
+
+#skills .container-skills {
+    margin-top: 2em;
+}
+
+#skills .container-skills h3 {
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+#skills .container-skills .card-skills {
+    margin-top: 2em;
+}
+
+#skills .container-skills .card-skills ul {
+    margin-top: 1.5em;
+}
+
+#skills .container-skills .card-skills ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#skills .container-skills .card-skills ul li img {
+    padding-right: 10px;
+    width: 30px;
+}
+
+@media screen and (min-width:768px) {
+    #skills .container-skills {
+        display: flex;
+    }
+
+    #skills .container-skills .card-skills {
+        width: 20%;
+    }
+}
+
+@media screen and (min-width:992px) {
+    #skills {
+        padding: 0 4em;
+    }
+}
+
+/* ---------- FORMATION ---------- */
+
+#formation {
+    margin-top: 7em;
+    padding: 0 2em;
+}
+
+#formation .content-timeline {
+    padding: 20px;
+    background-color: #fff;
+    position: relative;
+    border-radius: 6px;
+}
+
+#formation .content-timeline h3 {
+    text-transform: uppercase;
+    text-decoration: underline;
+    display: flex;
+    align-items: center;
+}
+
+#formation .content-timeline h3 img {
+    width: 25px;
+    margin-right: 10px;
+}
+
+#formation .content-timeline .etablissement {
+    color: var(--titre);
+    text-transform: uppercase;
+    font-weight: 600;
+    font-style: italic;
+}
+
+#formation .content-timeline p {
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+
+#formation .timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 3em auto 0 auto;
+}
+
+#formation .timeline::after {
+    content: "";
+    position: absolute;
+    width: 3px;
+    background-color: var(--paragraphe);
+    border-radius: 6px;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+}
+
+#formation .container-timeline {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 100%;
+}
+
+#formation .container-timeline::before {
+    content: "";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    right: 30px;
+    border: medium solid red;
+    border-width: 10px 0 10px #fff;
+    border-color: transparent #fff transparent transparent;
+}
+
+#formation .container-timeline:nth-child(odd) .content-timeline::before {
+    left: -14px
+}
+
+#formation .container-timeline:nth-child(even) .content-timeline::before {
+    right: -14px;
+}
+
+@media screen and (min-width: 768px) {
+    #formation {
+        padding: 0 4em;
+    }
+
+    #formation .container-timeline {
+        width: 50%;
+    }
+
+    #formation .container-timeline:nth-child(odd) .content-timeline::before {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    #formation .container-timeline:nth-child(even) .content-timeline::before {
+        right: 50%;
+        transform: translateX(50%);
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    #formation {
+        padding: 0 6em;
+    }
+
+    #formation .timeline::after {
+        left: calc(50% - 1.5px);
+    }
+
+    #formation .container-timeline {
+        width: 50%;
+        padding: 10px 20px;
+    }
+}

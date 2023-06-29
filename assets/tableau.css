@@ -1,0 +1,63 @@
+/* Utilitaire */
+:root {
+    --background-color: #FFFEEF;
+    --titre: #2244FE;
+    --paragraphe: #323232;
+    --font-titre: "Enoway", serif;
+    --font-paragraphe: 'Space Mono', monospace;
+    --gris: #A9A9A9 ;
+    --rouge: #FA8072;
+}
+
+.container-table {
+    overflow-x: scroll;
+    margin-left: 1em;
+    margin-top: 6em;
+}
+
+table {
+    margin-top: 2em;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    border: 1px solid var(--background-color);
+    color: #333;
+    text-transform: uppercase;
+    text-align: left;
+    border-bottom: 1px solid var(--paragraphe);
+    padding: 30px 40px;
+    background-color: var(--paragraphe);
+    color: var(--background-color);
+}
+
+td {
+    border-bottom: 1px solid #ddd;
+    padding: 30px 40px;
+    border: 1px solid var(--paragraphe);
+}
+
+td a {
+    color: var(--titre);
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--titre);
+}
+
+td a {
+    color: var(--titre);
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--titre);
+}
+
+td .btn-supprimer{
+    color: var(--rouge);
+    border-bottom: 1px solid var(--rouge);
+}
+
+@media only screen and (max-width: 768px) {
+    table {
+    overflow-x: auto;
+    white-space: nowrap;
+    }
+}

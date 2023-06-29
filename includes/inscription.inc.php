@@ -1,4 +1,3 @@
-<h1>Inscription</h1>
 <?php 
 
 if (isset($_POST['frmInscription'])) {

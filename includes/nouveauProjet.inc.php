@@ -1,5 +1,3 @@
-<h1>Ajouter un article</h1>
-
 <?php
 if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
     $errors = array();
@@ -50,89 +48,114 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
 
 ?>
 
-<form action="index.php?page=nouveauProjet" method="post">
-    <label for="titre">Titre</label>
-    <input type="text" name="titre" id="titre" value="<?php if (!empty($_POST['titre'])) {
-                                                            echo $_POST['titre'];
-                                                        } ?>">
-    <span class="error"><?php if (!empty($errors['titre'])) {
-                            echo $errors['titre'];
-                        } ?></span>
+<div class="container-form">
+    <h1>Ajouter un article</h1>
 
-    <label for="role">Role</label>
-    <input type="text" name="role" id="role" value="<?php if (!empty($_POST['role'])) {
-                                                        echo $_POST['role'];
-                                                    } ?>">
-    <span class="error"><?php if (!empty($errors['role'])) {
-                            echo $errors['role'];
-                        } ?></span>
+    <form class="form" action="index.php?page=nouveauProjet" method="post">
+        <div class="label-input">
+            <label class="label" for="titre">Titre</label>
+            <input class="input" type="text" name="titre" id="titre" value="<?php if (!empty($_POST['titre'])) {
+                                                                                echo $_POST['titre'];
+                                                                            } ?>">
+            <span class="error" class="error"><?php if (!empty($errors['titre'])) {
+                                                    echo $errors['titre'];
+                                                } ?></span>
+        </div>
 
-    <label for="description">Description</label>
-    <textarea name="description" id="description" cols="30" rows="10"><?php if (!empty($_POST['description'])) {
-                                                                            echo $_POST['description'];
-                                                                        } ?></textarea>
-    <span class="error"><?php if (!empty($errors['description'])) {
-                            echo $errors['description'];
-                        } ?></span>
+        <div class="label-input">
+            <label class="label" for="role">Role</label>
+            <input class="input" type="text" name="role" id="role" value="<?php if (!empty($_POST['role'])) {
+                                                                                echo $_POST['role'];
+                                                                            } ?>">
+            <span class="error"><?php if (!empty($errors['role'])) {
+                                    echo $errors['role'];
+                                } ?></span>
+        </div>
 
-    <label for="url_figma">Lien du Figma</label>
-    <input type="text" name="url_figma" id="url_figma" value="<?php if (!empty($_POST['url_figma'])) {
-                                                                    echo $_POST['url_figma'];
-                                                                } ?>">
-    <span class="error"><?php if (!empty($errors['url_figma'])) {
-                            echo $errors['url_figma'];
-                        } ?></span>
+        <div class="label-input">
+            <label class="label" for="description">Description</label>
+            <textarea class="textarea" name="description" id="description" cols="30" rows="10"><?php if (!empty($_POST['description'])) {
+                                                                                                    echo $_POST['description'];
+                                                                                                } ?></textarea>
+            <span class="error"><?php if (!empty($errors['description'])) {
+                                    echo $errors['description'];
+                                } ?></span>
+        </div>
 
-    <label for="url_github">Lien de Gituhub</label>
-    <input type="text" name="url_github" id="url_github" value="<?php if (!empty($_POST['url_github'])) {
-                                                                    echo $_POST['url_github'];
-                                                                } ?>">
-    <span class="error"><?php if (!empty($errors['url_github'])) {
-                            echo $errors['url_github'];
-                        } ?></span>
-
-    <label for="url_site">Lien du site</label>
-    <input type="text" name="url_site" id="auteur" value="<?php if (!empty($_POST['url_site'])) {
-                                                                echo $_POST['url_site'];
-                                                            } ?>">
-    <span class="error"><?php if (!empty($errors['url_site'])) {
-                            echo $errors['url_site'];
-                        } ?></span>
-
-    <label for="image">Image</label>
-    <input type="file" name="image" id="image" value="<?php if (!empty($_POST['image'])) {
-                                                            echo $_POST['image'];
-                                                        } ?>">
-    <span class="error"><?php if (!empty($errors['image'])) {
-                            echo $errors['image'];
-                        } ?></span>
+        <div class="label-input">
+            <label class="label" for="url_figma">Lien du Figma</label>
+            <input class="input" type="text" name="url_figma" id="url_figma" value="<?php if (!empty($_POST['url_figma'])) {
+                                                                                        echo $_POST['url_figma'];
+                                                                                    } ?>">
+            <span class="error"><?php if (!empty($errors['url_figma'])) {
+                                    echo $errors['url_figma'];
+                                } ?></span>
+        </div>
 
 
-    <label for="status">Status du projet</label>
+        <div class="label-input">
+            <label class="label" for="url_github">Lien de Gituhub</label>
+            <input class="input" type="text" name="url_github" id="url_github" value="<?php if (!empty($_POST['url_github'])) {
+                                                                                            echo $_POST['url_github'];
+                                                                                        } ?>">
+            <span class="error"><?php if (!empty($errors['url_github'])) {
+                                    echo $errors['url_github'];
+                                } ?></span>
+        </div>
 
-    <?php
-    $status = array(
-        'draft' => 'Brouillon',
-        'publish' => 'Publié'
-    );
 
-    ?>
-    <select name="status">
-        <option value="">Choisir le status</option>
-        <?php foreach ($status as $key => $value) {
-            $selected = '';
-            if (!empty($_POST['status'])) {
-                if ($_POST['status'] == $key) {
-                    $selected = ' selected="selected"';
-                }
-            }
-        ?>
-            <option value="<?php echo $key; ?>" <?php echo $selected; ?>><?php echo $value; ?></option>
-        <?php } ?>
-    </select>
-    <span class="error"><?php if (!empty($errors['status'])) {
-                            echo $errors['status'];
-                        } ?></span>
+        <div class="label-input">
+            <label class="label" for="url_site">Lien du site</label>
+            <input class="input" type="text" name="url_site" id="auteur" value="<?php if (!empty($_POST['url_site'])) {
+                                                                                    echo $_POST['url_site'];
+                                                                                } ?>">
+            <span class="error"><?php if (!empty($errors['url_site'])) {
+                                    echo $errors['url_site'];
+                                } ?></span>
+        </div>
 
-    <input type="submit" name="frmNouveauProjet" value="Ajouter un article">
-</form>
+
+        <div class="label-input">
+            <label class="label" for="image">Image</label>
+            <input class="input" type="file" name="image" id="image" value="<?php if (!empty($_POST['image'])) {
+                                                                                echo $_POST['image'];
+                                                                            } ?>">
+            <span class="error"><?php if (!empty($errors['image'])) {
+                                    echo $errors['image'];
+                                } ?></span>
+        </div>
+
+
+        <div class="label-input">
+            <label class="label" for="status">Status du projet</label>
+
+            <?php
+            $status = array(
+                'draft' => 'Brouillon',
+                'publish' => 'Publié'
+            );
+
+            ?>
+            <select class="select" name="status">
+                <option value="">Choisir le status</option>
+                <?php foreach ($status as $key => $value) {
+                    $selected = '';
+                    if (!empty($_POST['status'])) {
+                        if ($_POST['status'] == $key) {
+                            $selected = ' selected="selected"';
+                        }
+                    }
+                ?>
+                    <option value="<?php echo $key; ?>" <?php echo $selected; ?>><?php echo $value; ?></option>
+                <?php } ?>
+            </select>
+            <span class="error"><?php if (!empty($errors['status'])) {
+                                    echo $errors['status'];
+                                } ?></span>
+        </div>
+
+        <div class="label-input">
+            <input class="buttons" type="submit" name="frmNouveauProjet" value="Ajouter un article">
+        </div>
+    </form>
+</div>

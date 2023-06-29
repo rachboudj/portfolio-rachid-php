@@ -37,7 +37,7 @@ if (!empty($_GET['projetId']) && is_numeric($_GET['projetId'])) {
             $query->bindValue(':url_github', $urlGithub, PDO::PARAM_STR);
             $query->bindValue(':url_site', $urlSite, PDO::PARAM_STR);
             $query->bindValue(':status', $status, PDO::PARAM_STR);
-            $query->bindValue(':id_projet',$id, PDO::PARAM_INT);
+            $query->bindValue(':id_projet', $id, PDO::PARAM_INT);
             $query->execute();
             echo "<script>window.location.replace('index.php?page=projet&amp;id={$projet['id_projet']}')</script>";
         }
@@ -47,72 +47,101 @@ if (!empty($_GET['projetId']) && is_numeric($_GET['projetId'])) {
 }
 ?>
 
-<form action="" method="post">
-    <label for="titre">Titre</label>
-    <input type="text" name="titre" id="titre" value="<?= getValue('titre', $projet['titre']) ?>">
-    <span class="error"><?php if (!empty($errors['titre'])) {
-                            echo $errors['titre'];
-                        } ?></span>
-    
-    <label for="role">Role</label>
-    <input type="text" name="role" id="role" value="<?= getValue('role', $projet['role']) ?>">
-    <span class="error"><?php if (!empty($errors['role'])) {
-                            echo $errors['role'];
-                        } ?></span>
+<div class="container-form">
+    <h2>Modifier le projet</h2>
+    <form class="form" action="" method="post">
+        <div class="label-input">
+            <label class="label" for="titre">Titre</label>
+            <input class="input" type="text" name="titre" id="titre" value="<?= getValue('titre', $projet['titre']) ?>">
+            <span class="error"><?php if (!empty($errors['titre'])) {
+                                    echo $errors['titre'];
+                                } ?></span>
+        </div>
 
-    <label for="description">Description</label>
-    <textarea name="description" id="description" cols="30" rows="10"><?= getValue('description', $projet['description']) ?></textarea>
-    <span class="error"><?php if (!empty($errors['description'])) {
-                            echo $errors['description'];
-                        } ?></span>
+        <div class="label-input">
+            <label class="label" for="role">Role</label>
+            <input class="input" type="text" name="role" id="role" value="<?= getValue('role', $projet['role']) ?>">
+            <span class="error"><?php if (!empty($errors['role'])) {
+                                    echo $errors['role'];
+                                } ?></span>
+        </div>
 
-    <label for="url_figma">Lien du figma</label>
-    <input type="text" name="url_figma" id="url_figma" value="<?= getValue('url_figma', $projet['url_figma']) ?>">
-    <span class="error"><?php if (!empty($errors['url_figma'])) {
-                            echo $errors['url_figma'];
-                        } ?></span>
-
-<label for="url_github">Lien du GitHub</label>
-    <input type="text" name="url_github" id="url_github" value="<?= getValue('url_github', $projet['url_github']) ?>">
-    <span class="error"><?php if (!empty($errors['url_github'])) {
-                            echo $errors['url_github'];
-                        } ?></span>
-
-<label for="url_site">Lien du site</label>
-    <input type="text" name="url_site" id="url_site" value="<?= getValue('url_site', $projet['url_site']) ?>">
-    <span class="error"><?php if (!empty($errors['url_site'])) {
-                            echo $errors['url_site'];
-                        } ?></span>
-
-    <label for="status">Status du projet</label>
-
-    <?php
-    $status = array(
-        'draft' => 'Brouillon',
-        'publish' => 'Publié'
-    );
-
-    ?>
+        <div class="label-input">
+        <label class="label" for="description">Description</label>
+        <textarea class="textarea" name="description" id="description" cols="30" rows="10"><?= getValue('description', $projet['description']) ?></textarea>
+        <span class="error"><?php if (!empty($errors['description'])) {
+                                echo $errors['description'];
+                            } ?></span>
+        </div>
 
 
-    <select name="status">
-        <option value="">Choisir le status</option>
-        <?php foreach ($status as $key => $value) {
-            $selected = '';
-            if (!empty($_POST['status'])) {
-                if ($_POST['status'] == $key) {
-                    $selected = ' selected="selected"';
-                }
-            } elseif ($projet['status'] == $key) {
-                $selected = ' selected="selected"';
-            }
-        ?>
-            <option value="<?php echo $key; ?>" <?php echo $selected; ?>><?php echo $value; ?></option>
-        <?php } ?>
-    </select>
-    <span class="error"><?php if (!empty($errors['status'])) {
-                            echo $errors['status'];
-                        } ?></span>
+        <div class="label-input">
+            <label class="label" for="url_figma">Lien du figma</label>
+            <input class="input" type="text" name="url_figma" id="url_figma" value="<?= getValue('url_figma', $projet['url_figma']) ?>">
+            <span class="error"><?php if (!empty($errors['url_figma'])) {
+                                    echo $errors['url_figma'];
+                                } ?></span>
+        </div>
 
-    <input type="submit" name="submitted" value="Modifier le projet">
-</form>
+        <div class="label-input">
+            <label class="label" for="url_github">Lien du GitHub</label>
+            <input class="input" type="text" name="url_github" id="url_github" value="<?= getValue('url_github', $projet['url_github']) ?>">
+            <span class="error"><?php if (!empty($errors['url_github'])) {
+                                    echo $errors['url_github'];
+                                } ?></span>
+        </div>
+
+        <div class="label-input">
+            <label class="label" for="url_site">Lien du site</label>
+            <input class="input" type="text" name="url_site" id="url_site" value="<?= getValue('url_site', $projet['url_site']) ?>">
+            <span class="error"><?php if (!empty($errors['url_site'])) {
+                                    echo $errors['url_site'];
+                                } ?></span>
+        </div>
+
+        <div class="label-input">
+            <label class="label" for="status">Status du projet</label>
+
+            <?php
+            $status = array(
+                'draft' => 'Brouillon',
+                'publish' => 'Publié'
+            );
+            ?>
+
+
+            <select class="select" name="status">
+                <option value="">Choisir le status</option>
+                <?php foreach ($status as $key => $value) {
+                    $selected = '';
+                    if (!empty($_POST['status'])) {
+                        if ($_POST['status'] == $key) {
+                            $selected = ' selected="selected"';
+                        }
+                    } elseif ($projet['status'] == $key) {
+                        $selected = ' selected="selected"';
+                    }
+                ?>
+                    <option value="<?php echo $key; ?>" <?php echo $selected; ?>><?php echo $value; ?></option>
+                <?php } ?>
+            </select>
+            <span class="error"><?php if (!empty($errors['status'])) {
+                                    echo $errors['status'];
+                                } ?></span>
+        </div>
+
+        <div class="buttons-input">
+            <input class="buttons" type="submit" name="submitted" value="Modifier le projet">
+
+        </div>
+
+
+
+
+
+
+
+
+
+    </form>
+</div>

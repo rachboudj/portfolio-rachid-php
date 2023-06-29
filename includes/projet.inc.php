@@ -1,5 +1,5 @@
 <?php
-$sql = "SELECT * FROM projets WHERE status = 'draft' ORDER BY created_at DESC LIMIT 10";
+$sql = "SELECT * FROM projets WHERE status = 'publish' ORDER BY created_at DESC LIMIT 10";
 $query = pdo()->prepare($sql);
 $query->execute();
 $projets = $query->fetchAll();
@@ -14,7 +14,7 @@ $projets = $query->fetchAll();
         <?php foreach ($projets as $projet) {
         ?>
             <div class="card-projets">
-                <img src="" alt="Projet">
+                <img src="<?= $projet['image']; ?>" alt="<?= ucfirst($projet['titre']); ?>">
                 <div class="text-card">
                     <h2><?= ucfirst($projet['titre']); ?></h2>
                     <p><?= ucfirst($projet['role']); ?></p>

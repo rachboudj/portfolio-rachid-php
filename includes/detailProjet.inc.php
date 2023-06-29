@@ -46,7 +46,7 @@ $commentaires = $query->fetchAll();
 <section id="detail-projet">
     <div class="container-detail-article">
         <div class="img-detail-projet">
-            <img src="" alt="Projet">
+            <img src="<?= $projet['image']; ?>" alt="<?= ucfirst($projet['titre']); ?>">
         </div>
         <div class="text-detail-projet">
             <h1><?php echo ucfirst($projet['titre']); ?></h1>

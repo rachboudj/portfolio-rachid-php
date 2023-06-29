@@ -45,7 +45,7 @@ $commentaires = $query->fetchAll();
 
 <div class="container-detail-projet">
     <div class="img-detail-projet">
-        <img src="/assets/img/presentation-sucre-au-sucre.png" alt="">
+        <img src="<?= $projet['image']; ?>" alt="<?= ucfirst($projet['titre']); ?>">
     </div>
     <div class="text-detail-projet">
         <div class="head-detail-projet">

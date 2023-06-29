@@ -6,6 +6,7 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
 
     if (!empty($_POST['frmNouveauProjet'])) {
         $titre = trim(strip_tags($_POST['titre']));
+        $image = trim(strip_tags($_POST['image']));
         $role = trim(strip_tags($_POST['role']));
         $description = trim(strip_tags($_POST['description']));
         $urlFigma = trim(strip_tags($_POST['url_figma']));
@@ -13,13 +14,8 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
         $urlSite = trim(strip_tags($_POST['url_site']));
         $status = trim(strip_tags($_POST['status']));
 
-        // $img_nom = $_FILES['image']['name'];
-        // $tmp_nom = $_FILES['image']['tmp_name'];
-        // $time = time();
-        // $nouveauNomImage = $time.$img_nom;
-        // $deplacerImage = move_uploaded_file($tmp_nom, "assets/images_bdd/".$nouveau_nom_img);
-
         $errors = validationTexte($errors, $titre, 'titre', 2, 100);
+        $errors = validationTexte($errors, $image, 'image', 2, 1000);
         $errors = validationTexte($errors, $role, 'role', 2, 100);
         $errors = validationTexte($errors, $description, 'description', 10, 1000);
         $errors = validationTexte($errors, $urlFigma, 'url_figma', 2, 100);
@@ -28,24 +24,22 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
         $errors = validationTexte($errors, $status, 'status', 3, 20);
 
         if (count($errors) === 0) {
-            $requeteNewProjet = "INSERT INTO projets(titre,role,description,url_figma,url_github,url_site,created_at,modified_at,status)VALUES (:titre, :role,:description,:url_figma,:url_github,:url_site,NOW(),NOW(),:status)";
+            $requeteNewProjet = "INSERT INTO projets(titre,image,role,description,url_figma,url_github,url_site,created_at,modified_at,status)VALUES (:titre, :image, :role,:description,:url_figma,:url_github,:url_site,NOW(),NOW(),:status)";
             // die($requeteNewArticle);
             $query = pdo()->prepare($requeteNewProjet);
             $query->bindValue(':titre', $titre, PDO::PARAM_STR);
+            $query->bindValue(':image', $image, PDO::PARAM_STR);
             $query->bindValue(':role', $role, PDO::PARAM_STR);
             $query->bindValue(':description', $description, PDO::PARAM_STR);
             $query->bindValue(':url_figma', $urlFigma, PDO::PARAM_STR);
             $query->bindValue(':url_github', $urlGithub, PDO::PARAM_STR);
             $query->bindValue(':url_site', $urlSite, PDO::PARAM_STR);
-            // $query->bindValue(':image',$nouveauNomImage, PDO::PARAM_STR);
             $query->bindValue(':status', $status, PDO::PARAM_STR);
             $query->execute();
-        } else {
-            $message = "Veuillez choisir une image avec une taille inférieur à 1 Mo !";
         }
     }
 } else {
-    echo "<script>window.location.replace('index.php?page=login')</script>";
+    // echo "<script>window.location.replace('index.php?page=login')</script>";
 }
 
 ?>
@@ -92,17 +86,17 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
                         } ?></span>
 
     <label for="url_site">Lien du site</label>
-    <input type="text" name="url_site" id="auteur" value="<?php if (!empty($_POST['url_site'])) {
+    <input type="text" name="url_site" id="url_site" value="<?php if (!empty($_POST['url_site'])) {
                                                                 echo $_POST['url_site'];
                                                             } ?>">
     <span class="error"><?php if (!empty($errors['url_site'])) {
                             echo $errors['url_site'];
                         } ?></span>
 
-    <label for="image">Image</label>
-    <input type="file" name="image" id="image" value="<?php if (!empty($_POST['image'])) {
-                                                            echo $_POST['image'];
-                                                        } ?>">
+    <label for="image">URL de l'image</label>
+    <input type="text" name="image" id="image" value="<?php if (!empty($_POST['image'])) {
+                                                                echo $_POST['image'];
+                                                            } ?>">
     <span class="error"><?php if (!empty($errors['image'])) {
                             echo $errors['image'];
                         } ?></span>

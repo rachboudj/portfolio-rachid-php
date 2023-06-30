@@ -43,56 +43,70 @@ $commentaires = $query->fetchAll();
 
 ?>
 
-<div class="container-detail-projet">
-    <div class="img-detail-projet">
-        <img src="<?= $projet['image']; ?>" alt="<?= ucfirst($projet['titre']); ?>">
-    </div>
-    <div class="text-detail-projet">
-        <div class="head-detail-projet">
-            <h1><?php echo ucfirst($projet['titre']); ?></h1>
-            <span class="role"><?php echo ucfirst($projet['role']); ?></span>
+<section id="detail-projet">
+<button class="mt3"><a class="buttons2" href="index.php?page=projet">Revenir en arrière</a></button>
+    <div class="container-detail-projet">
+        <div class="img-detail-projet">
+            <img src="<?= $projet['image']; ?>" alt="<?= ucfirst($projet['titre']); ?>">
         </div>
-        <p><?php echo nl2br($projet['description']); ?></p>
-        <p><span class="bold">Temps de réalisation : </span><?php echo nl2br($projet['duree']); ?></p>
-        <div class="btn-detail-projet">
-            <a target="_blank" href="<?php echo ucfirst($projet['url_github']); ?>">Voir la maquette figma <i class="ti ti-arrow-up-right"></i></a>
-            <a target="_blank" href="<?php echo ucfirst($projet['url_github']); ?>">Voir le code sur Github <i class="ti ti-arrow-up-right"></i></a>
-            <a target="_blank" href="<?php echo ucfirst($projet['url_site']); ?>">Voir le site <i class="ti ti-arrow-up-right"></i></a>
-        </div>
-    </div>
-</div>
-
-
-
-
-    <div class="commentaires">
-        <h2>Les commentaires</h2>
-
-        <form class="form" action="" method="post">
-            <label class="label" for="auteur">Auteur</label>
-            <input class="input" type="text" id="auteur" name="auteur" value="">
-            <span class="error"></span>
-
-            <label class="label" for="description">Commentaire</label>
-            <textarea class="textarea" name="description"></textarea>
-            <span class="error"></span>
-
-            <input class="buttons" type="submit" name="submitted" value="Ajouter">
-
-            <?php if (!empty($commentaires)) { ?>
-
-                <?php foreach ($commentaires as $commentaire) { ?>
-
-                    <div class="detail-commentaires">
-                        <p class="auteur"><?= $commentaire['auteur'] ?></p>
-                        <p class="contenu"><?= $commentaire['description'] ?></p>
-                        <div class="btn-commentaires">
-                            <button><a class="btn-remove" href="index.php?page=supprimerCommentaire&amp;projetId=<?= $commentaire['id_commentaire'] ?>">Supprimer</a></button>
-                            <button><a class="btn-edit" href="index.php?page=modifCommentaire&amp;projetId=<?= $commentaire['id_commentaire'] ?>">Modifier</a></button>
-                        </div>
-                    </div>
+        <div class="text-detail-projet">
+            <div class="head-detail-projet">
+                <h1><?php echo ucfirst($projet['titre']); ?></h1>
+                <span class="role"><?php echo ucfirst($projet['role']); ?></span>
+            </div>
+            <p><?php echo nl2br($projet['description']); ?></p>
+            <p><span class="bold">Temps de réalisation : </span><?php echo nl2br($projet['duree']); ?></p>
+            <div class="btn-detail-projet">
+                <?php if (empty($projet['url_figma'])) {
+                    echo ("<span class=\"vide\">Pas de maquette</span>");
+                } else { ?>
+                    <a target="_blank" href="<?php echo ucfirst($projet['url_figma']); ?>">Voir la maquette <i class="ti ti-arrow-up-right"></i></a>
                 <?php } ?>
 
+                <a target="_blank" href="<?php echo ucfirst($projet['url_github']); ?>">Voir le code sur Github <i class="ti ti-arrow-up-right"></i></a>
+
+                <?php if (empty($projet['url_site'])) {
+                    echo ("<span class=\"vide\">Ce projet n'a pas été déployé</span>");
+                } else { ?>
+                    <a target="_blank" href="<?php echo ucfirst($projet['url_site']); ?>">Voir le site <i class="ti ti-arrow-up-right"></i></a>
+                <?php } ?>
+            </div>
+        </div>
     </div>
+</section>
+
+
+
+
+
+<div class="commentaires">
+    <h2>Les commentaires</h2>
+
+    <form class="form" action="" method="post">
+        <label class="label" for="auteur">Auteur</label>
+        <input class="input" type="text" id="auteur" name="auteur" value="">
+        <span class="error"></span>
+
+        <label class="label" for="description">Commentaire</label>
+        <textarea class="textarea" name="description"></textarea>
+        <span class="error"></span>
+
+        <input class="buttons" type="submit" name="submitted" value="Ajouter">
+
+        <?php if (!empty($commentaires)) { ?>
+
+            <?php foreach ($commentaires as $commentaire) { ?>
+
+                <div class="detail-commentaires">
+                    <p class="auteur"><?= $commentaire['auteur'] ?></p>
+                    <p class="contenu"><?= $commentaire['description'] ?></p>
+                    <div class="btn-commentaires">
+                        <button><a class="btn-remove" href="index.php?page=supprimerCommentaire&amp;projetId=<?= $commentaire['id_commentaire'] ?>">Supprimer</a></button>
+                        <button><a class="btn-edit" href="index.php?page=modifCommentaire&amp;projetId=<?= $commentaire['id_commentaire'] ?>">Modifier</a></button>
+                    </div>
+                </div>
+            <?php } ?>
+
+</div>
 
 <?php } ?>

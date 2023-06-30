@@ -433,11 +433,22 @@ a {
     padding: 0 2em;
 }
 
+#formation h2 {
+    font-size: 2em;
+    border-bottom: 2px solid var(--paragraphe);
+    padding-bottom: 10px;
+}
+
+#formation .timeline {
+    margin-top: 3em;
+}
+
 #formation .content-timeline {
     padding: 20px;
     background-color: #fff;
     position: relative;
-    border-radius: 6px;
+    margin-bottom: 2em;
+    border: 1px solid var(--paragraphe);
 }
 
 #formation .content-timeline h3 {
@@ -457,6 +468,7 @@ a {
     text-transform: uppercase;
     font-weight: 600;
     font-style: italic;
+    margin-top: 10px;
 }
 
 #formation .content-timeline p {
@@ -464,83 +476,12 @@ a {
     margin-top: 10px;
 }
 
-#formation .timeline {
-    position: relative;
-    max-width: 1200px;
-    margin: 3em auto 0 auto;
-}
 
-#formation .timeline::after {
-    content: "";
-    position: absolute;
-    width: 3px;
-    background-color: var(--paragraphe);
-    border-radius: 6px;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    margin-left: -3px;
-}
-
-#formation .container-timeline {
-    padding: 10px 40px;
-    position: relative;
-    background-color: inherit;
-    width: 100%;
-}
-
-#formation .container-timeline::before {
-    content: "";
-    height: 0;
-    position: absolute;
-    top: 22px;
-    width: 0;
-    z-index: 1;
-    right: 30px;
-    border: medium solid red;
-    border-width: 10px 0 10px #fff;
-    border-color: transparent #fff transparent transparent;
-}
-
-#formation .container-timeline:nth-child(odd) .content-timeline::before {
-    left: -14px
-}
-
-#formation .container-timeline:nth-child(even) .content-timeline::before {
-    right: -14px;
-}
 
 @media screen and (min-width: 768px) {
-    #formation {
-        padding: 0 4em;
-    }
 
-    #formation .container-timeline {
-        width: 50%;
-    }
-
-    #formation .container-timeline:nth-child(odd) .content-timeline::before {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    #formation .container-timeline:nth-child(even) .content-timeline::before {
-        right: 50%;
-        transform: translateX(50%);
-    }
 }
 
 @media screen and (min-width: 1200px) {
-    #formation {
-        padding: 0 6em;
-    }
 
-    #formation .timeline::after {
-        left: calc(50% - 1.5px);
-    }
-
-    #formation .container-timeline {
-        width: 50%;
-        padding: 10px 20px;
-    }
 }

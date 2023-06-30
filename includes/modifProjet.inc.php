@@ -24,9 +24,9 @@ if (!empty($_GET['projetId']) && is_numeric($_GET['projetId'])) {
         $errors = validationTexte($errors, $role, 'role', 2, 100);
         $errors = validationTexte($errors, $description, 'description', 10, 1000);
         $errors = validationTexte($errors, $duree, 'duree', 2, 100);
-        $errors = validationTexte($errors, $urlFigma, 'url_figma', 2, 100);
+        // $errors = validationTexte($errors, $urlFigma, 'url_figma', 2, 1000);
         $errors = validationTexte($errors, $urlGithub, 'url_github', 2, 100);
-        $errors = validationTexte($errors, $urlSite, 'url_site', 2, 100);
+        // $errors = validationTexte($errors, $urlSite, 'url_site', 2, 100);
         $errors = validationTexte($errors, $status, 'status', 3, 20);
 
         $projet2 = $projet['id_projet'];
@@ -48,13 +48,12 @@ if (!empty($_GET['projetId']) && is_numeric($_GET['projetId'])) {
             echo "<script>window.location.replace('index.php?page=projet&amp;id={$projet['id_projet']}')</script>";
         }
     }
-} else {
-    // die();
 }
 ?>
 
 <div class="container-form">
     <h2>Modifier le projet</h2>
+    <button class="mt"><a class="buttons2" href="index.php?page=projetAdmin">Revenir en arrière</a></button>
     <form class="form" action="" method="post">
         <div class="label-input">
             <label class="label" for="titre">Titre</label>
@@ -98,7 +97,7 @@ if (!empty($_GET['projetId']) && is_numeric($_GET['projetId'])) {
 
 
         <div class="label-input">
-            <label class="label" for="url_figma">Lien du figma</label>
+            <label class="label" for="url_figma">Lien de la maquette</label>
             <input class="input" type="text" name="url_figma" id="url_figma" value="<?= getValue('url_figma', $projet['url_figma']) ?>">
             <span class="error"><?php if (!empty($errors['url_figma'])) {
                                     echo $errors['url_figma'];

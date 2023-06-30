@@ -73,6 +73,24 @@ a {
     color: var(--paragraphe);
 }
 
+.btn-lien {
+    font-family: var(--font-paragraphe);
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--titre);
+}
+
+.vide {
+    color: var(--gris);
+    font-weight: 100;
+    font-style: italic;
+}
+
+.mt3 {
+    margin-top: 3em;
+}
+
 .bold {
     font-weight: 600;
 }

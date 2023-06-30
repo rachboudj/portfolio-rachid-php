@@ -34,6 +34,7 @@ if (!empty($_GET['projetId']) && is_numeric($_GET['projetId'])) {
 
 <div class="container-form">
     <h2>Modifier le commentaire</h2>
+    <button class="mt"><a class="buttons2" href="index.php?page=detailProjet&amp;id=<?= $projet['id_projet']; ?>">Retour</a></button>
     <form class="form" action="" method="post">
 
         <div class="label-input">

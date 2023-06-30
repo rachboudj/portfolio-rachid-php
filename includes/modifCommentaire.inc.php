@@ -25,6 +25,7 @@ if (!empty($_GET['projetId']) && is_numeric($_GET['projetId'])) {
             $query->bindValue(':auteur', $auteur, PDO::PARAM_STR);
             $query->bindValue(':id_commentaire', $id, PDO::PARAM_INT);
             $query->execute();
+            header('Location: index.php?page=projet');
         }
     }
 } else {

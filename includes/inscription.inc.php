@@ -55,11 +55,13 @@ if (isset($_POST['frmInscription'])) {
             ";
         } else {
             if (inscrireUtilisateur($nom, $prenom, $email, $mdp1))
-                $message = "
-                <div class=\"sucess\">
-                    <span class=\"sucess-message\">Vous avez été inscrit avec succés !</span>
-                </div>
-                ";
+                // $message = "
+                // <div class=\"sucess\">
+                //     <span class=\"sucess-message\">Vous avez été inscrit avec succés !</span>
+                // </div>
+                // ";
+                header('Location: index.php?page=login');
+
             else
                 $message = "
                 <div class=\"sucess\">

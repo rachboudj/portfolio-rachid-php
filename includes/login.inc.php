@@ -42,7 +42,8 @@ if (isset($_POST['frmLogin'])) {
             }
 
             $_SESSION['login'] = true;
-            echo "<script>window.location.replace('http://localhost:8888/portfolio-rachid/')</script>";
+            // echo "<script>window.location.replace('http://localhost:8888/portfolio-rachid/')</script>";
+            header('Location: index.php');
         } else {
             echo "Erreur dans votre login/password";
         }

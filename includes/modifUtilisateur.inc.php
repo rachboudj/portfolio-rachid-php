@@ -35,7 +35,7 @@ if (!empty($_GET['usersId']) && is_numeric($_GET['usersId'])) {
             $query->bindValue(':role', $role, PDO::PARAM_STR);
             $query->bindValue(':id_utilisateur', $id, PDO::PARAM_INT);
             $query->execute();
-            echo "<script>window.location.replace('http://localhost:8888/portfolio-rachid/index.php?page=utilisateur')</script>";
+            header('Location: index.php?page=utilisateur');
         }
     }
 } else {

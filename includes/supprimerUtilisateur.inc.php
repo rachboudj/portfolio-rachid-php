@@ -7,7 +7,7 @@ if (!empty($_GET['usersId']) && ctype_digit($_GET['usersId']) && verifierAdmin()
         $sql = "DELETE FROM utilisateurs WHERE utilisateurs.id_utilisateur = '$id'";
         $query = $pdo->query($sql);
         $query->execute();
-        echo "<script>window.location.replace('http://localhost:8888/portfolio-rachid/index.php?page=utilisateur')</script>";
+        echo "<script>window.location.replace('index.php?page=utilisateur')</script>";
         // die('Problème au niveau de la redirection');
     }
     

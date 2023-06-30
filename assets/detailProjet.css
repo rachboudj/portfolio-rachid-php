@@ -1,7 +1,7 @@
 /* ---------- Fin des utilitaires ---------- */
 
 .container-detail-projet {
-    margin-top: 2em;
+    margin-top: 10em;
 }
 
 .container-detail-projet .img-detail-projet {
@@ -96,11 +96,11 @@
     .container-detail-projet {
         display: flex;
         align-items: center;
-        margin-top: 2em;
+        margin-top: 8em;
     }
     
     .container-detail-projet .img-detail-projet {
-        width: 100%;
+        width: 50%;
         padding: 0 2em;
         height: auto;
     }
@@ -108,5 +108,9 @@
     .container-detail-projet .img-detail-projet img{
         width: 100%;
         height: auto;
+    }
+
+    .container-detail-projet .text-detail-projet {
+        width: 50%;
     }
 }

@@ -28,10 +28,10 @@ $projets = $query->fetchAll();
         <div class="text-a-propos">
             <h2>Hey !</h2>
             <p>
-                Je m'appelle Rachid, développeur front-end et étudiant à la Normandie Web School. 
-                Mon objectif est de créer des solutions attrayantes et fonctionnelles qui améliorent la vie des utilisateurs et des clients. 
-                J'aime l'alliance entre l'esthétique et l'utilité, en proposant des sites web interactifs et intuitifs. 
-                Je suis constamment à la recherche de nouvelles technologies pour rester à jour et offrir des solutions innovantes. 
+                Je m'appelle Rachid, développeur front-end et étudiant à la Normandie Web School.
+                Mon objectif est de créer des solutions attrayantes et fonctionnelles qui améliorent la vie des utilisateurs et des clients.
+                J'aime l'alliance entre l'esthétique et l'utilité, en proposant des sites web interactifs et intuitifs.
+                Je suis constamment à la recherche de nouvelles technologies pour rester à jour et offrir des solutions innovantes.
                 Je suis ouvert aux opportunités et prêt à contribuer à des projets passionnants.
             </p>
             <button class="mt3"><a target="_blank" class="btn-lien" href="./assets/pdf/v4-cv-rachid.pdf">Voir mon CV ↗</a></button>
@@ -63,10 +63,10 @@ $projets = $query->fetchAll();
                 </div>
             </div>
         <?php } ?>
-
-        <div class="btn-voir-projet">
-            <button><a href="index.php?page=projet">Voir tous les projets</a></button>
-        </div>
+    </div>
+    <div class="btn-voir-projet">
+        <button><a href="index.php?page=projet">Voir tous les projets</a></button>
+    </div>
 </section>
 
 

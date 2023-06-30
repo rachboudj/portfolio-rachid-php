@@ -88,7 +88,7 @@
                             ?>
                             <?php
                             if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
-                                echo '<li><a class="logout" href="index.php?page=logout">DÉCONNEXION</a></li>';
+                                echo '<li class="logout"><a href="index.php?page=logout">DÉCONNEXION</a></li>';
                             } else {
                                 echo '
                                 <li><a href="index.php?page=inscription">INSCRIPTION</a></li>

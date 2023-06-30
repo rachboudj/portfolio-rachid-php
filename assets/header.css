@@ -183,7 +183,7 @@ header .container-header nav {
 
     header .container-header nav ul .sub-menu {
         margin-top: 1em;
-        padding: 2em;
+        padding: 2em 2em 1em 2em;
         visibility: hidden;
         background-color: #fff;
         border: 2px solid var(--paragraphe);
@@ -209,7 +209,7 @@ header .container-header nav {
 
     header .container-header nav ul .sub-menu .logout {
         border-top: 2px solid var(--paragraphe);
-        margin-top: 8em;
+        margin-top: 2em;
         padding-top: 10px;
     }
 

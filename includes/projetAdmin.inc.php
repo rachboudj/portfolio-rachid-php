@@ -21,6 +21,7 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === true && $_SESSION['role'
                 <th>Image</th>
                 <th>Contenu</th>
                 <th>Rôle</th>
+                <th>Durée</th>
                 <th>URL du Figma</th>
                 <th>URL du Github</th>
                 <th>URL du site</th>
@@ -38,6 +39,7 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === true && $_SESSION['role'
                     <td><?= $projet['image']; ?></td>
                     <td><?= $projet['description']; ?></td>
                     <td><?= $projet['role']; ?></td>
+                    <td><?= $projet['duree']; ?></td>
                     <td><?= $projet['url_figma']; ?></td>
                     <td><?= $projet['url_github']; ?></td>
                     <td><?= $projet['url_site']; ?></td>

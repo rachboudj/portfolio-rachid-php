@@ -53,11 +53,11 @@ $commentaires = $query->fetchAll();
             <span class="role"><?php echo ucfirst($projet['role']); ?></span>
         </div>
         <p><?php echo nl2br($projet['description']); ?></p>
-        <p><span class="bold">Temps de réalisation :</span><?php echo nl2br($projet['duree']); ?></p>
+        <p><span class="bold">Temps de réalisation : </span><?php echo nl2br($projet['duree']); ?></p>
         <div class="btn-detail-projet">
-            <a href="#">Voir la maquette figma <i class="ti ti-arrow-up-right"></i></a>
-            <a href="<?php echo ucfirst($projet['url_github']); ?>">Voir le code sur Github <i class="ti ti-arrow-up-right"></i></a>
-            <a href="<?php echo ucfirst($projet['url_site']); ?>">Voir le site <i class="ti ti-arrow-up-right"></i></a>
+            <a target="_blank" href="<?php echo ucfirst($projet['url_github']); ?>">Voir la maquette figma <i class="ti ti-arrow-up-right"></i></a>
+            <a target="_blank" href="<?php echo ucfirst($projet['url_github']); ?>">Voir le code sur Github <i class="ti ti-arrow-up-right"></i></a>
+            <a target="_blank" href="<?php echo ucfirst($projet['url_site']); ?>">Voir le site <i class="ti ti-arrow-up-right"></i></a>
         </div>
     </div>
 </div>

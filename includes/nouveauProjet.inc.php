@@ -15,20 +15,22 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
         $errors = validationTexte($errors, $titre, 'titre', 2, 100);
         $errors = validationTexte($errors, $image, 'image', 2, 1000);
         $errors = validationTexte($errors, $role, 'role', 2, 100);
-        $errors = validationTexte($errors, $description, 'description', 10, 1000);
-        $errors = validationTexte($errors, $urlFigma, 'url_figma', 2, 100);
-        $errors = validationTexte($errors, $urlGithub, 'url_github', 2, 100);
-        $errors = validationTexte($errors, $urlSite, 'url_site', 2, 100);
+        $errors = validationTexte($errors, $description, 'description', 10, 500);
+        $errors = validationTexte($errors, $duree, 'duree', 2, 100);
+        $errors = validationTexte($errors, $urlFigma, 'url_figma', 2, 250);
+        $errors = validationTexte($errors, $urlGithub, 'url_github', 2, 250);
+        $errors = validationTexte($errors, $urlSite, 'url_site', 2, 250);
         $errors = validationTexte($errors, $status, 'status', 3, 20);
 
         if (count($errors) === 0) {
-            $requeteNewProjet = "INSERT INTO projets(titre,image,role,description,url_figma,url_github,url_site,created_at,modified_at,status)VALUES (:titre, :image, :role,:description,:url_figma,:url_github,:url_site,NOW(),NOW(),:status)";
+            $requeteNewProjet = "INSERT INTO projets(titre,image,role,description,duree:duree,:url_figma,:url_github,:url_site,NOW(),NOW(),:status)";
             // die($requeteNewArticle);
             $query = pdo()->prepare($requeteNewProjet);
             $query->bindValue(':titre', $titre, PDO::PARAM_STR);
             $query->bindValue(':image', $image, PDO::PARAM_STR);
             $query->bindValue(':role', $role, PDO::PARAM_STR);
             $query->bindValue(':description', $description, PDO::PARAM_STR);
+            $query->bindValue(':duree', $duree, PDO::PARAM_STR);
             $query->bindValue(':url_figma', $urlFigma, PDO::PARAM_STR);
             $query->bindValue(':url_github', $urlGithub, PDO::PARAM_STR);
             $query->bindValue(':url_site', $urlSite, PDO::PARAM_STR);
@@ -57,6 +59,16 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
         </div>
 
         <div class="label-input">
+            <label class="label" for="image">URL de l'image</label>
+            <input class="input" type="text" name="image" id="image" value="<?php if (!empty($_POST['image'])) {
+                                                                                echo $_POST['image'];
+                                                                            } ?>">
+            <span class="error"><?php if (!empty($errors['image'])) {
+                                    echo $errors['image'];
+                                } ?></span>
+        </div>
+
+        <div class="label-input">
             <label class="label" for="role">Role</label>
             <input class="input" type="text" name="role" id="role" value="<?php if (!empty($_POST['role'])) {
                                                                                 echo $_POST['role'];
@@ -73,6 +85,16 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
                                                                                                 } ?></textarea>
             <span class="error"><?php if (!empty($errors['description'])) {
                                     echo $errors['description'];
+                                } ?></span>
+        </div>
+
+        <div class="label-input">
+            <label class="label" for="duree">Temps de réalisation</label>
+            <input class="input" type="text" name="duree" id="duree" value="<?php if (!empty($_POST['duree'])) {
+                                                                                echo $_POST['duree'];
+                                                                            } ?>">
+            <span class="error"><?php if (!empty($errors['duree'])) {
+                                    echo $errors['duree'];
                                 } ?></span>
         </div>
 
@@ -105,17 +127,6 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
                                                                                 } ?>">
             <span class="error"><?php if (!empty($errors['url_site'])) {
                                     echo $errors['url_site'];
-                                } ?></span>
-        </div>
-
-
-        <div class="label-input">
-            <label class="label" for="image">Image</label>
-            <input class="input" type="file" name="image" id="image" value="<?php if (!empty($_POST['image'])) {
-                                                                                echo $_POST['image'];
-                                                                            } ?>">
-            <span class="error"><?php if (!empty($errors['image'])) {
-                                    echo $errors['image'];
                                 } ?></span>
         </div>
 

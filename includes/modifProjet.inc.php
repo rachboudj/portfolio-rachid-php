@@ -10,16 +10,20 @@ if (!empty($_GET['projetId']) && is_numeric($_GET['projetId'])) {
 
     if (!empty($_POST['submitted'])) {
         $titre = trim(strip_tags($_POST['titre']));
+        $image = trim(strip_tags($_POST['image']));
         $role = trim(strip_tags($_POST['role']));
         $description = trim(strip_tags($_POST['description']));
+        $duree = trim(strip_tags($_POST['duree']));
         $urlFigma = trim(strip_tags($_POST['url_figma']));
         $urlGithub = trim(strip_tags($_POST['url_github']));
         $urlSite = trim(strip_tags($_POST['url_site']));
         $status = trim(strip_tags($_POST['status']));
 
         $errors = validationTexte($errors, $titre, 'titre', 2, 100);
+        $errors = validationTexte($errors, $image, 'image', 2, 1000);
         $errors = validationTexte($errors, $role, 'role', 2, 100);
         $errors = validationTexte($errors, $description, 'description', 10, 1000);
+        $errors = validationTexte($errors, $duree, 'duree', 2, 100);
         $errors = validationTexte($errors, $urlFigma, 'url_figma', 2, 100);
         $errors = validationTexte($errors, $urlGithub, 'url_github', 2, 100);
         $errors = validationTexte($errors, $urlSite, 'url_site', 2, 100);
@@ -28,11 +32,13 @@ if (!empty($_GET['projetId']) && is_numeric($_GET['projetId'])) {
         $projet2 = $projet['id_projet'];
 
         if (count($errors) === 0) {
-            $sql = "UPDATE projets SET titre= :titre, role= :role, description= :description, url_figma= :url_figma, url_github= :url_github, url_site= :url_site, status= :status WHERE id_projet= :id_projet";
+            $sql = "UPDATE projets SET titre= :titre, role= :role, image= :image, description= :description, duree= :duree, url_figma= :url_figma, url_github= :url_github, url_site= :url_site, status= :status WHERE id_projet= :id_projet";
             $query = $pdo = pdo()->prepare($sql);
             $query->bindValue(':titre', $titre, PDO::PARAM_STR);
+            $query->bindValue(':image', $image, PDO::PARAM_STR);
             $query->bindValue(':role', $role, PDO::PARAM_STR);
             $query->bindValue(':description', $description, PDO::PARAM_STR);
+            $query->bindValue(':duree', $duree, PDO::PARAM_STR);
             $query->bindValue(':url_figma', $urlFigma, PDO::PARAM_STR);
             $query->bindValue(':url_github', $urlGithub, PDO::PARAM_STR);
             $query->bindValue(':url_site', $urlSite, PDO::PARAM_STR);
@@ -59,6 +65,14 @@ if (!empty($_GET['projetId']) && is_numeric($_GET['projetId'])) {
         </div>
 
         <div class="label-input">
+            <label class="label" for="image">URL de l'image</label>
+            <input class="input" type="text" name="image" id="image" value="<?= getValue('image', $projet['image']) ?>">
+            <span class="error"><?php if (!empty($errors['image'])) {
+                                    echo $errors['image'];
+                                } ?></span>
+        </div>
+
+        <div class="label-input">
             <label class="label" for="role">Role</label>
             <input class="input" type="text" name="role" id="role" value="<?= getValue('role', $projet['role']) ?>">
             <span class="error"><?php if (!empty($errors['role'])) {
@@ -72,6 +86,14 @@ if (!empty($_GET['projetId']) && is_numeric($_GET['projetId'])) {
         <span class="error"><?php if (!empty($errors['description'])) {
                                 echo $errors['description'];
                             } ?></span>
+        </div>
+
+        <div class="label-input">
+            <label class="label" for="duree">Temps de réalisation</label>
+            <input class="input" type="text" name="duree" id="duree" value="<?= getValue('duree', $projet['duree']) ?>">
+            <span class="error"><?php if (!empty($errors['duree'])) {
+                                    echo $errors['duree'];
+                                } ?></span>
         </div>
 
 

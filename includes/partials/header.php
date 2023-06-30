@@ -12,7 +12,6 @@
     <title>Portfolio de Rachid</title>
 
     <link rel="stylesheet" href="./assets/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/iconfont/tabler-icons.min.css" />
 </head>
 
 <body>

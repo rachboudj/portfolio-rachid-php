@@ -13,7 +13,7 @@ $projets = $query->fetchAll();
         <h1>Rachid Boudjakdji</h1>
         <p>Je suis un développeur front-end basé sur Vernon. <br>Étudiant en développement web à la Normandie Webschool.
         </p>
-        <button><a href="mailto:rboudjakdji@normandiewebschool.fr?subject=Rachid, votre profil m'intéresse !">rboudjakdji@normandiewebschool.fr <i class="ti ti-arrow-up-right"></i></a></button>
+        <button><a href="mailto:rboudjakdji@normandiewebschool.fr?subject=Rachid, votre profil m'intéresse !">rboudjakdji@normandiewebschool.fr ↗</a></button>
     </div>
 </section>
 
@@ -28,15 +28,13 @@ $projets = $query->fetchAll();
         <div class="text-a-propos">
             <h2>Hey !</h2>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Quibusdam, adipisci nulla quam doloremque commodi fugit? Ab
-                ratione maiores alias eaque reprehenderit deserunt quidem
-                voluptatibus ipsam! At repellat cupiditate quos aut! Minus,
-                laboriosam reiciendis error ea impedit dolore. Eveniet enim
-                aspernatur, itaque, ad, ipsum quae incidunt veritatis odit sunt
-                id nihil culpa ea! Veniam, quae at consectetur illo dolor porro
-                modi.
+                Je m'appelle Rachid, développeur front-end et étudiant à la Normandie Web School. 
+                Mon objectif est de créer des solutions attrayantes et fonctionnelles qui améliorent la vie des utilisateurs et des clients. 
+                J'aime l'alliance entre l'esthétique et l'utilité, en proposant des sites web interactifs et intuitifs. 
+                Je suis constamment à la recherche de nouvelles technologies pour rester à jour et offrir des solutions innovantes. 
+                Je suis ouvert aux opportunités et prêt à contribuer à des projets passionnants.
             </p>
+            <button class="mt3"><a target="_blank" class="btn-lien" href="./assets/pdf/v4-cv-rachid.pdf">Voir mon CV ↗</a></button>
         </div>
     </div>
 </section>
@@ -50,25 +48,25 @@ $projets = $query->fetchAll();
     <div class="container-card">
         <!-- 1er projet  -->
         <?php foreach ($projets as $projet) { ?>
-        <div class="card-project">
-            <img src="<?= $projet['image'] ?>" alt="<?= ucfirst($projet['titre']); ?>">
+            <div class="card-project">
+                <img src="<?= $projet['image'] ?>" alt="<?= ucfirst($projet['titre']); ?>">
 
-            <div class="content">
-                <div class="titre">
-                    <h3><?= ucfirst($projet['titre']); ?></h3>
-                    <span class="role"><?= ucfirst($projet['role']); ?></span>
-                </div>
+                <div class="content">
+                    <div class="titre">
+                        <h3><?= ucfirst($projet['titre']); ?></h3>
+                        <span class="role"><?= ucfirst($projet['role']); ?></span>
+                    </div>
 
-                <div class="btn">
-                    <button><a href="index.php?page=detailProjet&amp;id=<?= $projet['id_projet']; ?>">Voir le projet ↗</a></button>
+                    <div class="btn">
+                        <button><a href="index.php?page=detailProjet&amp;id=<?= $projet['id_projet']; ?>">Voir le projet ↗</a></button>
+                    </div>
                 </div>
             </div>
-        </div>
         <?php } ?>
 
-    <div class="btn-voir-projet">
-        <button><a href="index.php?page=projet">Voir tous les projets</a></button>
-    </div>
+        <div class="btn-voir-projet">
+            <button><a href="index.php?page=projet">Voir tous les projets</a></button>
+        </div>
 </section>
 
 

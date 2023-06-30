@@ -7,6 +7,7 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
         $image = trim(strip_tags($_POST['image']));
         $role = trim(strip_tags($_POST['role']));
         $description = trim(strip_tags($_POST['description']));
+        $duree = trim(strip_tags($_POST['duree']));
         $urlFigma = trim(strip_tags($_POST['url_figma']));
         $urlGithub = trim(strip_tags($_POST['url_github']));
         $urlSite = trim(strip_tags($_POST['url_site']));
@@ -17,13 +18,13 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
         $errors = validationTexte($errors, $role, 'role', 2, 100);
         $errors = validationTexte($errors, $description, 'description', 10, 500);
         $errors = validationTexte($errors, $duree, 'duree', 2, 100);
-        $errors = validationTexte($errors, $urlFigma, 'url_figma', 2, 250);
+        // $errors = validationTexte($errors, $urlFigma, 'url_figma', 2, 1000);
         $errors = validationTexte($errors, $urlGithub, 'url_github', 2, 250);
-        $errors = validationTexte($errors, $urlSite, 'url_site', 2, 250);
+        // $errors = validationTexte($errors, $urlSite, 'url_site', 2, 250);
         $errors = validationTexte($errors, $status, 'status', 3, 20);
 
         if (count($errors) === 0) {
-            $requeteNewProjet = "INSERT INTO projets(titre,image,role,description,duree:duree,:url_figma,:url_github,:url_site,NOW(),NOW(),:status)";
+            $requeteNewProjet = "INSERT INTO projets(titre, image, role, description, duree, url_figma, url_github, url_site, created_at, modified_at, status) VALUES (:titre, :image, :role, :description, :duree, :url_figma, :url_github, :url_site, NOW(), NOW(), :status)";
             // die($requeteNewArticle);
             $query = pdo()->prepare($requeteNewProjet);
             $query->bindValue(':titre', $titre, PDO::PARAM_STR);
@@ -36,6 +37,7 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
             $query->bindValue(':url_site', $urlSite, PDO::PARAM_STR);
             $query->bindValue(':status', $status, PDO::PARAM_STR);
             $query->execute();
+            header('Location: index.php?page=projet');
         }
     }
 } else {
@@ -45,7 +47,7 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
 ?>
 
 <div class="container-form">
-    <h1>Ajouter un article</h1>
+    <h1>Ajouter un projet</h1>
 
     <form class="form" action="index.php?page=nouveauProjet" method="post">
         <div class="label-input">
@@ -99,7 +101,7 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
         </div>
 
         <div class="label-input">
-            <label class="label" for="url_figma">Lien du Figma</label>
+            <label class="label" for="url_figma">Lien de la maquette</label>
             <input class="input" type="text" name="url_figma" id="url_figma" value="<?php if (!empty($_POST['url_figma'])) {
                                                                                         echo $_POST['url_figma'];
                                                                                     } ?>">

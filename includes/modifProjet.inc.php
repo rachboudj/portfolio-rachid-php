@@ -53,7 +53,7 @@ if (!empty($_GET['projetId']) && is_numeric($_GET['projetId'])) {
 
 <div class="container-form">
     <h2>Modifier le projet</h2>
-    <button class="mt"><a class="buttons2" href="index.php?page=projetAdmin">Revenir en arrière</a></button>
+    <button class="mt3"><a class="buttons2" href="index.php?page=projetAdmin">Revenir en arrière</a></button>
     <form class="form" action="" method="post">
         <div class="label-input">
             <label class="label" for="titre">Titre</label>

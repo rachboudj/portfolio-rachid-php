@@ -1,0 +1,61 @@
+/* ---------- FOOTER ---------- */
+
+footer {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin-top: 2em;
+    padding: 2em 2em;
+}
+
+footer .footer-text {
+    color: var(--titre);
+    text-transform: uppercase;
+    margin-top: 1em;
+    width: 70%;
+}
+
+footer .btn-reseaux {
+    display: flex;
+}
+
+footer .btn-reseaux button {
+    border: 1px solid var(--titre);
+    background-color: transparent;
+    padding: 0.8em 1em;
+    border-radius: 40px;
+    margin-top: 1em;
+    margin-right: 10px;
+}
+
+footer .btn-reseaux button a {
+    text-transform: uppercase;
+    color: var(--titre);
+}
+
+footer .scroll-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--titre);
+    margin-top: 2em;
+}
+
+footer .scroll-top a {
+    text-transform: uppercase;
+    color: var(--titre);
+}
+
+@media screen and (min-width:992px) {
+    footer {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+        padding: 3em 0;
+    }
+
+    footer .footer-text {
+        width: 40%;
+    }
+}

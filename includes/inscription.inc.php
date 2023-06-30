@@ -1,4 +1,3 @@
-<h1>Inscription</h1>
 <?php 
 
 if (isset($_POST['frmInscription'])) {
@@ -34,7 +33,7 @@ if (isset($_POST['frmInscription'])) {
         array_push($erreurs,  "Vous n'êtes pas d'accord avec les conditions de service");
 
     if (count($erreurs) > 0) {
-        $messageErreurs = "<ul>";
+        $messageErreurs = "<ul class=\"error2\">";
 
         for ($i = 0; $i < count($erreurs); $i++) {
             $messageErreurs .= "<li>";
@@ -49,12 +48,26 @@ if (isset($_POST['frmInscription'])) {
         require_once './includes/inscription.inc.php';
     } else {
         if (verifierUtilisateur($email)) {
-            echo "Vous êtes déjà inscrit";
+            echo "
+            <div class=\"sucess\">
+                <span class=\"error-message\">Vous êtes déjà inscrit</span>
+            </div>
+            ";
         } else {
             if (inscrireUtilisateur($nom, $prenom, $email, $mdp1))
-                $message = "Vous avez été inscrit avec succés !";
+                // $message = "
+                // <div class=\"sucess\">
+                //     <span class=\"sucess-message\">Vous avez été inscrit avec succés !</span>
+                // </div>
+                // ";
+                header('Location: index.php?page=login');
+
             else
-                $message = "Erreur";
+                $message = "
+                <div class=\"sucess\">
+                    <span class=\"error-message\">Il y a un erreur...</span>
+                </div>
+                ";
 
             echo $message;
         }

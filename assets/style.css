@@ -39,6 +39,7 @@ body {
     --font-paragraphe: 'Space Mono', monospace;
     --gris: #A9A9A9 ;
     --rouge: #FA8072;
+    --rouge-clair: #ffe4e4;
     --blanc: #fff;
     --transparent: transparent;
 }
@@ -70,6 +71,10 @@ button {
 a {
     text-decoration: none;
     color: var(--paragraphe);
+}
+
+.bold {
+    font-weight: 600;
 }
 
 @media screen and (min-width:992px) {}
